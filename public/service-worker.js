@@ -1,6 +1,6 @@
 const FILES_TO_CACHE = [
     '/public/manifest.webmanifest',
-    'index.html',
+    '/public/index.html',
     '/public/js/index.js',
     '/public/js/db.js',
     'https://cdn.jsdelivr.net/npm/chart.js@2.8.0',
@@ -21,7 +21,7 @@ self.addEventListener('install', function(evt) {
     self.skipWaiting();
 });
 
-self.addEventListener('active', function(evt) {
+self.addEventListener('activate', function(evt) {
     evt.waitUntil(
         caches.keys().then(keyList => {
             return Promise.all(
@@ -50,7 +50,7 @@ self.addEventListener('fetch', function(evt) {
                 })
                 .catch(err => {
                     return cache.match(evt.request);
-                })
+                });
             })
             .catch(err => console.log(err))
         );
@@ -60,5 +60,5 @@ self.addEventListener('fetch', function(evt) {
         caches.match(evt.request).then(function (response) {
             return response || fetch(evt.request);
         })
-    )
+    );
 });
