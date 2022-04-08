@@ -1,12 +1,12 @@
 const FILES_TO_CACHE = [
   "/",
-  "/public/manifest.webmanifest",
-  "/public/index.html",
-  "/public/js/index.js",
-  "/public/js/db.js",
+  "/manifest.webmanifest",
+  "/index.html",
+  "/js/index.js",
+  "/js/db.js",
   "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
-  "/public/icons/icon-192x192.png",
-  "/public/icons/icon-512x512.png",
+  "/icons/icon-192x192.png",
+  "/icons/icon-512x512.png",
 ];
 
 const CACHE_NAME = "static-cache-v2";
